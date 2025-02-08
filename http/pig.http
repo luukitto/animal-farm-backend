@@ -1,0 +1,23 @@
+### Update Pig Status to HAPPY
+POST http://localhost:3000/pig/status
+Content-Type: application/json
+
+{
+  "status": "happy"
+}
+
+### Update Pig Status to PUTIN
+POST http://localhost:3000/pig/status
+Content-Type: application/json
+
+{
+  "status": "putin"
+}
+
+### Update Pig Status to DEFAULT
+POST http://localhost:3000/pig/status
+Content-Type: application/json
+
+{
+  "status": "default"
+}

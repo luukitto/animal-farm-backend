@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Pig } from "./entities/pig.entity";
+import { databaseConfig } from "./config/database.config";
+import { PigController } from "./controllers/pig.controller";
+import { PigService } from "./services/pig.service";
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot(databaseConfig),
+    TypeOrmModule.forFeature([Pig])
+  ],
+  controllers: [PigController],
+  providers: [PigService],
 })
 export class AppModule {}
