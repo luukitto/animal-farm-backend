@@ -1,2 +1,6 @@
-GET http://localhost:3000/animal
+GET http://localhost:3000/animals
+Accept: application/json
+###
+
+POST http://localhost:3000/animals/1/feed
 Accept: application/json
