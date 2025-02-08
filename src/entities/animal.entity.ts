@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import {PigStatus} from "./pig.entity";
+import {Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 
 @Entity()
 export class Animal {
@@ -9,12 +8,11 @@ export class Animal {
     @Column()
     name: string;
 
-    @Column({
-        type: 'enum',
-        enum: PigStatus,
-        default: PigStatus.DEFAULT
-    })
-    status: PigStatus;
+    @Column()
+    type: string;
+
+    @Column({default: 0})
+    arkipoCounter: number
 
     @UpdateDateColumn()
     updatedAt: Date;

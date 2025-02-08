@@ -1,6 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Pig } from '../entities/pig.entity';
 import {DataSource} from "typeorm";
+import {Animal} from "../entities/animal.entity";
 
 export const databaseConfig: TypeOrmModuleOptions = {
     type: 'postgres',
@@ -9,7 +10,7 @@ export const databaseConfig: TypeOrmModuleOptions = {
     username: 'pig',
     password: 'bidzina',
     database: 'animal_farm',
-    entities: [Pig],
+    entities: [Pig, Animal],
     synchronize: true,
     logging: true,
     migrations: ['dist/migrations/*.ts'],
