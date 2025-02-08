@@ -4,9 +4,9 @@ import {PigService} from "../services/pig.service";
 
 @Controller('pig')
 export class PigController {
-    constructor(private readonly pigService: PigService) {}
+    constructor(private pigService: PigService) {}
 
-    @Get()
+    @Get('status')
     getCurrentPig(): Promise<Pig> {
         return this.pigService.getPig();
     }
