@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 export enum PigStatus {
     DEFAULT = 'default',

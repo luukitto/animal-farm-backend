@@ -1,8 +1,8 @@
-import {Pig, PigStatus} from "../entities/pig.entity";
-import {Body, Controller, Get, Post} from "@nestjs/common";
-import {PigService} from "../services/pig.service";
+import { Pig, PigStatus } from "../entities/pig.entity";
+import { Body, Controller, Get, Post } from "@nestjs/common";
+import { PigService } from "../services/pig.service";
 
-@Controller('pig')
+@Controller('bidzina')
 export class PigController {
     constructor(private pigService: PigService) {}
 

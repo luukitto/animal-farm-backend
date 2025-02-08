@@ -1,7 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Pig } from '../entities/pig.entity';
-import {DataSource} from "typeorm";
-import {Animal} from "../entities/animal.entity";
+import { DataSource } from "typeorm";
+import { Animal } from "../entities/animal.entity";
 
 export const databaseConfig: TypeOrmModuleOptions = {
     type: 'postgres',
