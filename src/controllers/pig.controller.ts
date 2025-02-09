@@ -1,5 +1,5 @@
 import { Pig, PigStatus } from "../entities/pig.entity";
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Post } from "@nestjs/common";
 import { PigService } from "../services/pig.service";
 
 @Controller('bidzina')
@@ -12,6 +12,7 @@ export class PigController {
     }
 
     @Post('status')
+    @HttpCode(HttpStatus.OK)
     updateStatus(@Body('status') status: PigStatus): Promise<Pig> {
         return this.pigService.updateStatus(status);
     }

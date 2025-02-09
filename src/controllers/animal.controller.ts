@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from "@nestjs/common";
+import { Controller, Get, HttpCode, HttpStatus, Param, Post } from "@nestjs/common";
 import { AnimalService } from "../services/animal.service";
 import { Animal } from "../entities/animal.entity";
 
@@ -14,6 +14,7 @@ export class AnimalController {
 
     // Should be Get
     @Post(':id/feed')
+    @HttpCode(HttpStatus.OK)
     feedAnimal(@Param('id') id: number) {
         return this.animalService.feedAnimal(id);
     }

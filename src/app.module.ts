@@ -7,13 +7,14 @@ import { PigService } from "./services/pig.service";
 import { Animal} from "./entities/animal.entity";
 import { AnimalService} from "./services/animal.service";
 import { AnimalController} from "./controllers/animal.controller";
+import { MusicController } from "./controllers/music.controller";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(databaseConfig),
     TypeOrmModule.forFeature([Pig, Animal])
   ],
-  controllers: [PigController, AnimalController],
+  controllers: [PigController, AnimalController, MusicController],
   providers: [PigService, AnimalService],
 })
 export class AppModule {}
