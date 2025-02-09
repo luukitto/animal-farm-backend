@@ -14,7 +14,7 @@ export class AnimalController {
 
     // Should be Get
     @Post(':id/feed')
-    updateAnimal(@Param('id') id: number) {
-        return this.animalService.updateArkipo(id);
+    feedAnimal(@Param('id') id: number) {
+        return this.animalService.feedAnimal(id);
     }
 }
