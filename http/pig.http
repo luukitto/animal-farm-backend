@@ -1,8 +1,8 @@
-GET http://localhost:3000/bidzina/status
+GET http://localhost:3000/api/bidzina/status
 Accept: application/json
 
 ### Update Pig Status to HAPPY
-POST http://localhost:3000/bidzina/status
+POST http://localhost:3000/api/bidzina/status
 Content-Type: application/json
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 }
 
 ### Update Pig Status to PUTIN
-POST http://localhost:3000/bidzina/status
+POST http://localhost:3000/api/bidzina/status
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Update Pig Status to DEFAULT
-POST http://localhost:3000/bidzina/status
+POST http://localhost:3000/api/bidzina/status
 Content-Type: application/json
 
 {
