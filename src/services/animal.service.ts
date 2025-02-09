@@ -14,7 +14,11 @@ export class AnimalService {
     ) {}
 
     getAllAnimals(): Promise<Animal[]> {
-        return this.animalRepository.find()
+        return this.animalRepository.find({
+            order: {
+                id: 'ASC'
+            }
+        })
     }
 
     async updateArkipo(id: number) {
@@ -22,6 +26,6 @@ export class AnimalService {
           const animal = await this.animalRepository.findOneBy({id});
           const pig = await this.pigService.updateStatus(PigStatus.HAPPY);
 
-          return {animal: animal, pig: pig}
+          return {animal: animal, pigStatus: pig}
     }
 }
