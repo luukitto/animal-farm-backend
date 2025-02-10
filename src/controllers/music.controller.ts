@@ -8,6 +8,6 @@ export class MusicController {
     @HttpCode(HttpStatus.OK)
     getMusic(@Body('status') status: PigStatus) {
         const song = status === PigStatus.DEFAULT ? 'pig.m4a' : 'putin.m4a';
-        return `assets/audio/${song}`;
+        return JSON.stringify(`assets/audio/${song}`);
     }
 }
