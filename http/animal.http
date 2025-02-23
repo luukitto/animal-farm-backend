@@ -4,3 +4,9 @@ Accept: application/json
 
 POST http://localhost:3000/api/animals/1/feed
 Accept: application/json
+
+###
+POST https://shrew-square-vastly.ngrok-free.app/api/animals/1/feed
+Accept: application/json
+
+
