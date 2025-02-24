@@ -8,5 +8,8 @@ Accept: application/json
 ###
 POST https://shrew-square-vastly.ngrok-free.app/api/animals/1/feed
 Accept: application/json
+###
+GET http://localhost:3000/api/animals?sortOrder=DESC&limit=10
+
 
 

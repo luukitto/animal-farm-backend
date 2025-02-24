@@ -1,8 +1,8 @@
 import { Controller, Get, HttpCode, HttpStatus, Param, Post, Query } from "@nestjs/common";
 import { AnimalService } from "../services/animal.service";
 import { Animal } from "../entities/animal.entity";
-import { PaginationDto } from "../Dto/pagination.dto";
-import { PaginatedResponse } from "../Dto/paginated-response.dto";
+import { PaginationDto } from "../dto/pagination.dto";
+import { PaginatedResponse } from "../dto/paginated-response.dto";
 
 @Controller('animals')
 export class AnimalController {
