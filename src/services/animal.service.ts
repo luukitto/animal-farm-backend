@@ -1,7 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { ILike, Repository } from "typeorm";
 import { Animal } from "../entities/animal.entity";
+import { PaginationDto } from "../Dto/pagination.dto";
+import { PaginatedResponse } from "../Dto/paginated-response.dto";
 
 @Injectable()
 export class AnimalService {
@@ -10,12 +12,31 @@ export class AnimalService {
         private animalRepository: Repository<Animal>
     ) {}
 
-    getAllAnimals(): Promise<Animal[]> {
-        return this.animalRepository.find({
-            order: {
-                id: 'ASC'
+    async getAllAnimals(paginationDto: PaginationDto): Promise<PaginatedResponse<Animal>> {
+        const { page = 1, limit = 10, search } = paginationDto;
+        const skip = (page - 1) * limit;
+
+        const whereClause = search ? [
+            { name: ILike(`%${search}%`) },
+            { type: ILike(`%${search}%`) }
+        ] : {};
+
+        const [items, total] = await this.animalRepository.findAndCount({
+            where: whereClause,
+            order: { id: 'ASC' },
+            skip,
+            take: limit,
+        });
+
+        return {
+            items,
+            meta: {
+                total,
+                page,
+                limit,
+                pages: Math.ceil(total / limit),
             }
-        })
+        };
     }
 
     async feedAnimal(id: number) {

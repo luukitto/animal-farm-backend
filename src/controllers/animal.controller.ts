@@ -1,6 +1,8 @@
-import { Controller, Get, HttpCode, HttpStatus, Param, Post } from "@nestjs/common";
+import { Controller, Get, HttpCode, HttpStatus, Param, Post, Query } from "@nestjs/common";
 import { AnimalService } from "../services/animal.service";
 import { Animal } from "../entities/animal.entity";
+import { PaginationDto } from "../Dto/pagination.dto";
+import { PaginatedResponse } from "../Dto/paginated-response.dto";
 
 @Controller('animals')
 export class AnimalController {
@@ -8,11 +10,11 @@ export class AnimalController {
     }
 
     @Get()
-    getAllAnimals(): Promise<Animal[]> {
-        return this.animalService.getAllAnimals()
+    getAllAnimals(@Query() paginationDto: PaginationDto): Promise<PaginatedResponse<Animal>> {
+        return this.animalService.getAllAnimals(paginationDto);
+
     }
 
-    // Should be Get
     @Post(':id/feed')
     @HttpCode(HttpStatus.OK)
     feedAnimal(@Param('id') id: number) {
